@@ -684,8 +684,8 @@ a:hover {
 ======================================== */
 
 .doc-box {
-  background: var(--bg-card);
-  border: 1px solid var(--border-light);
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-300);
   border-radius: var(--radius-2xl);
   padding: var(--space-8);
   margin-bottom: var(--space-8);
@@ -713,7 +713,7 @@ a:hover {
 .doc-box h3,
 .doc-box h4,
 .doc-box h5 {
-  color: var(--color-gray-800); /* Dark text for readability */
+  color: var(--color-gray-800);
   font-weight: var(--font-weight-bold);
   margin-top: var(--space-6);
   margin-bottom: var(--space-4);
@@ -727,7 +727,7 @@ a:hover {
 
 .doc-box h4 {
   font-size: var(--font-size-xl);
-  color: var(--color-primary-700); /* Blue accent for subheadings */
+  color: var(--color-primary-700);
 }
 
 .doc-box h5 {
@@ -735,7 +735,7 @@ a:hover {
 }
 
 .doc-box p {
-  color: var(--text-secondary);
+  color: var(--color-gray-600);
   line-height: var(--line-height-relaxed);
   margin-bottom: var(--space-4);
 }
@@ -746,7 +746,7 @@ a:hover {
 }
 
 .doc-box li {
-  color: var(--text-secondary);
+  color: var(--color-gray-600);
   margin-bottom: var(--space-2);
   line-height: var(--line-height-relaxed);
 }
@@ -902,8 +902,8 @@ a:hover {
 }
 
 .feature {
-  background: var(--bg-card);
-  border: 1px solid var(--border-light);
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-300);
   border-radius: var(--radius-2xl);
   padding: var(--space-8);
   box-shadow: var(--shadow-sm);
@@ -953,7 +953,7 @@ a:hover {
 }
 
 .feature p {
-  color: var(--text-secondary);
+  color: var(--color-gray-600);
   line-height: var(--line-height-relaxed);
 }
 
