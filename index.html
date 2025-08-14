@@ -1,26 +1,196 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benim İlk Web Sitem</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kombine Devir – Resmî Web Sitesi</title>
+  <meta name="description" content="Kombinesi olup maça gidemeyenlerle alıcıları buluşturan güvenli mobil uygulama." />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Open Graph (paylaşım görünümü) -->
+  <meta property="og:title" content="Kombine Devir" />
+  <meta property="og:description" content="Kombinesi olup maça gidemeyenlerle alıcıları buluşturan mobil uygulama." />
+  <meta property="og:type" content="website" />
 </head>
 <body>
-    <header>
-        <h1>Merhaba Dünya! 👋</h1>
-        <p>Bu site GitHub Pages ile ücretsiz olarak yayınlandı.</p>
-    </header>
+  <!-- Header / Navbar -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#home" class="brand">
+        <!-- Basit logo -->
+        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.88L18.18 22 12 18.77 5.82 22 7 14.15l-5-4.88 6.91-1.01L12 2z" fill="currentColor" />
+        </svg>
+        <span>Kombine Devir</span>
+      </a>
 
-    <main>
-        <button id="btn">Bana Tıkla</button>
-        <p id="message"></p>
-    </main>
+      <button class="menu-toggle" aria-label="Menüyü aç/kapat" id="menuToggle" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
 
-    <footer>
-        <p>© 2025 Yalçın Canbay - Tüm Hakları Saklıdır</p>
-    </footer>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Ana Sayfa</a>
+        <a href="#about">Hakkında</a>
+        <a href="#terms">Kullanıcı Sözleşmesi</a>
+        <a href="#privacy">Gizlilik Politikası</a>
+      </nav>
+    </div>
+  </header>
 
-    <script src="script.js"></script>
+  <!-- Hero / Ana -->
+  <section id="home" class="section hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h1>Kombineni güvenle devret, maçı kaçırma!</h1>
+        <p class="lead">
+          Kombinesi olup maça gidemeyenlerle alıcıları <strong>güvenli</strong> ve <strong>hızlı</strong> şekilde buluşturan mobil uygulama.
+        </p>
+
+        <div class="store-buttons">
+          <!-- Linkleri mağaza URL’lerinle değiştir -->
+          <a class="store-btn" href="#" id="androidLink" aria-label="Google Play">
+            <!-- Android SVG -->
+            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M17.6 3.84l-1.1 1.1a6.5 6.5 0 00-9 0l-1.1-1.1M7 9.5a.75.75 0 11-1.5 0A.75.75 0 017 9.5zm11.5 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM5 11.5v6a2 2 0 002 2h10a2 2 0 002-2v-6H5z" fill="currentColor"/>
+            </svg>
+            <div>
+              <small>Şimdi indir</small>
+              <span>Google Play</span>
+            </div>
+          </a>
+
+          <a class="store-btn" href="#" id="iosLink" aria-label="App Store">
+            <!-- Apple SVG -->
+            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M16.37 12.12c0-2.2 1.8-3.23 1.87-3.28-1.03-1.5-2.63-1.7-3.2-1.72-1.36-.14-2.64.8-3.33.8-.7 0-1.73-.78-2.85-.76-1.47.02-2.83.85-3.58 2.15-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.26 2.74 2.22 1.1-.04 1.52-.72 2.85-.72 1.33 0 1.7.72 2.87.7 1.19-.02 1.95-1.08 2.67-2.14.84-1.23 1.19-2.44 1.2-2.5-.03-.01-2.3-.89-2.34-3.51zM14.22 5.6c.6-.73 1-1.75.89-2.77-.86.04-1.92.6-2.55 1.33-.56.64-1.04 1.67-.9 2.66.95.07 1.95-.5 2.56-1.22z" fill="currentColor"/>
+            </svg>
+            <div>
+              <small>Yakında</small>
+              <span>App Store</span>
+            </div>
+          </a>
+        </div>
+
+        <ul class="bullets">
+          <li>⚽ Hızlı ilan oluşturma ve arama</li>
+          <li>🔐 Güven odaklı eşleşme mantığı</li>
+          <li>📱 iOS ve Android desteği</li>
+        </ul>
+      </div>
+
+      <div class="hero-card" role="img" aria-label="Uygulama ekran kartı">
+        <div class="mock-card">
+          <div class="mock-status"></div>
+          <div class="mock-body">
+            <h3>Yaklaşan Maçlar</h3>
+            <ul class="mock-list">
+              <li><span>GS vs FB</span><small>Cumartesi 20:00</small></li>
+              <li><span>BJK vs TS</span><small>Pazar 19:00</small></li>
+              <li><span>ANK vs GÖZ</span><small>Çarşamba 21:45</small></li>
+            </ul>
+            <button class="primary">İlan Ver</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hakkında -->
+  <section id="about" class="section">
+    <div class="container narrow">
+      <h2>Hakkında</h2>
+      <p class="muted">
+        <!-- Metninizi buraya yapıştırın -->
+        Bu alanı kendi “Hakkında” metninizle değiştirin. Uygulamanın amacını, nasıl çalıştığını ve güvenlik yaklaşımınızı anlatın.
+      </p>
+
+      <div class="features-grid">
+        <div class="feature">
+          <div class="feature-icon">🛡️</div>
+          <h3>Güven</h3>
+          <p>Doğrulamalar ve şikayet mekanizması ile topluluk öncelikli yaklaşım.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">⚡</div>
+          <h3>Hız</h3>
+          <p>Kısa sürede eşleşme ve bildirimlerle anında haber alma.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">💬</div>
+          <h3>İletişim</h3>
+          <p>Güvenli mesajlaşma ve rehberlik içerikleri.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kullanıcı Sözleşmesi -->
+  <section id="terms" class="section alt">
+    <div class="container narrow">
+      <h2>Kullanıcı Sözleşmesi</h2>
+      <div class="doc-box">
+        <!-- Metninizi buraya yapıştırın -->
+        <p class="placeholder">
+          Buraya “Kullanıcı Sözleşmesi” metninizi yapıştırın. Başlıkları ve maddeleri dilediğiniz gibi düzenleyebilirsiniz.
+        </p>
+      </div>
+      <button class="copy-btn" data-copy-target="#terms .doc-box">Metni Kopyala</button>
+    </div>
+  </section>
+
+  <!-- Gizlilik Politikası -->
+  <section id="privacy" class="section">
+    <div class="container narrow">
+      <h2>Gizlilik Politikası</h2>
+      <div class="doc-box">
+        <!-- Metninizi buraya yapıştırın -->
+        <p class="placeholder">
+          Buraya “Gizlilik Politikası” metninizi yapıştırın. Toplanan veriler, saklama süreleri ve haklarınızı belirtin.
+        </p>
+      </div>
+      <button class="copy-btn" data-copy-target="#privacy .doc-box">Metni Kopyala</button>
+    </div>
+  </section>
+
+  <!-- İletişim / Alt CTA -->
+  <section class="section cta alt">
+    <div class="container cta-box">
+      <div>
+        <h3>Uygulama yayına girdiğinde haberdar ol</h3>
+        <p class="muted">E-posta adresini bırak, çıktığımız an sana bildirelim.</p>
+      </div>
+      <form id="notifyForm" class="notify-form" autocomplete="off">
+        <input type="email" id="emailInput" placeholder="ornek@mail.com" aria-label="E-posta adresi" required />
+        <button type="submit" class="primary">Beni Bilgilendir</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand brand-sm">
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.88L18.18 22 12 18.77 5.82 22 7 14.15l-5-4.88 6.91-1.01L12 2z" fill="currentColor" />
+          </svg>
+          <span>Kombine Devir</span>
+        </div>
+        <p class="muted sm">
+          © <span id="year"></span> Kombine Devir. Tüm hakları saklıdır.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#terms">Kullanıcı Sözleşmesi</a>
+        <a href="#privacy">Gizlilik Politikası</a>
+        <a href="#about">Hakkında</a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Yukarı çık">↑</button>
+
+  <script src="script.js"></script>
 </body>
 </html>
