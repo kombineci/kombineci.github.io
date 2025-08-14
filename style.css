@@ -196,49 +196,115 @@ body {
    TYPOGRAPHY SYSTEM
 ======================================== */
 
+/* Base heading styles */
 h1, h2, h3, h4, h5, h6 {
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
-  color: var(--color-gray-800);
+  color: var(--color-gray-800); /* Default for white backgrounds */
   margin-bottom: var(--space-4);
   font-variation-settings: 'wght' 700;
 }
 
-/* Specific section title styling */
-.section-title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
-  color: var(--color-gray-800);
-  margin-bottom: 1rem;
+/* Hero section - dark background, white text */
+.hero h1 {
+  font-size: clamp(var(--font-size-4xl), 8vw, var(--font-size-7xl));
+  font-weight: var(--font-weight-black);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--space-6);
+  color: #ffffff; /* White text on dark gradient */
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 4px 8px rgba(0, 0, 0, 0.2),
+    0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-/* Override for different section backgrounds */
-.section.alt h1,
-.section.alt h2, 
-.section.alt h3,
-.section.alt h4,
-.section.alt h5,
-.section.alt h6,
-.section.alt .section-title {
-  color: var(--color-gray-800);
+/* Features section (#features) - white background */
+#features h2,
+#features h3,
+#features h4,
+#features h5,
+#features h6 {
+  color: var(--color-gray-800); /* Dark text on white */
 }
 
-#terms h1,
+/* About section (#about) - light blue background (.section.alt) */
+#about h2,
+#about h3,
+#about h4,
+#about h5,
+#about h6 {
+  color: var(--color-gray-800); /* Dark text on light blue */
+}
+
+/* FAQ section (#faq) - white background */
+#faq h2,
+#faq h3,
+#faq h4,
+#faq h5,
+#faq h6 {
+  color: var(--color-gray-800); /* Dark text on white */
+}
+
+/* Terms section (#terms) - white background */
 #terms h2,
 #terms h3,
 #terms h4,
 #terms h5,
 #terms h6 {
-  color: var(--color-gray-800);
+  color: var(--color-gray-800); /* Dark text on white */
 }
 
+/* Privacy section (#privacy) - white background */
+#privacy h2,
+#privacy h3,
+#privacy h4,
+#privacy h5,
+#privacy h6 {
+  color: var(--color-gray-800); /* Dark text on white */
+}
+
+/* Newsletter section - gradient background */
+.newsletter h2,
+.newsletter h3,
+.newsletter h4,
+.newsletter h5,
+.newsletter h6 {
+  color: #ffffff; /* White text on gradient */
+}
+
+/* Footer - dark background */
 .site-footer h1,
 .site-footer h2,
 .site-footer h3,
 .site-footer h4,
 .site-footer h5,
 .site-footer h6 {
-  color: var(--color-white);
+  color: #ffffff; /* White text on dark */
+}
+
+/* Section title styling based on background */
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* White background sections */
+#features .section-title,
+#faq .section-title,
+#terms .section-title,
+#privacy .section-title {
+  color: var(--color-gray-800);
+}
+
+/* Light blue background sections */
+#about .section-title {
+  color: var(--color-gray-800);
+}
+
+/* Gradient background sections */
+.newsletter .newsletter-title {
+  color: #ffffff;
 }
 
 h1 { font-size: var(--font-size-5xl); }
@@ -647,7 +713,7 @@ a:hover {
 .doc-box h3,
 .doc-box h4,
 .doc-box h5 {
-  color: var(--text-primary);
+  color: var(--color-gray-800); /* Dark text for readability */
   font-weight: var(--font-weight-bold);
   margin-top: var(--space-6);
   margin-bottom: var(--space-4);
@@ -655,13 +721,13 @@ a:hover {
 
 .doc-box h3 {
   font-size: var(--font-size-2xl);
-  border-bottom: 2px solid var(--color-primary-100);
+  border-bottom: 2px solid var(--color-primary-200);
   padding-bottom: var(--space-2);
 }
 
 .doc-box h4 {
   font-size: var(--font-size-xl);
-  color: var(--text-brand);
+  color: var(--color-primary-700); /* Blue accent for subheadings */
 }
 
 .doc-box h5 {
@@ -783,7 +849,7 @@ a:hover {
   cursor: pointer;
   font-weight: var(--font-weight-semibold);
   font-size: var(--font-size-lg);
-  color: var(--text-primary);
+  color: var(--color-gray-800); /* Dark text on white background */
   padding: var(--space-2) 0;
   list-style: none;
   position: relative;
@@ -881,7 +947,7 @@ a:hover {
 .feature h3 {
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
-  color: var(--text-primary);
+  color: var(--color-gray-800);
   margin-bottom: var(--space-3);
 }
 
