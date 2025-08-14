@@ -199,7 +199,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
-  color: var(--text-primary);
+  color: var(--color-gray-900);
   margin-bottom: var(--space-4);
   font-variation-settings: 'wght' 700;
 }
@@ -213,7 +213,7 @@ h6 { font-size: var(--font-size-lg); }
 
 p {
   margin-bottom: var(--space-4);
-  color: var(--text-secondary);
+  color: var(--color-gray-600);
   line-height: var(--line-height-relaxed);
 }
 
@@ -995,9 +995,9 @@ a:hover {
 .text-left { text-align: left; }
 .text-right { text-align: right; }
 
-.text-primary { color: var(--text-primary); }
-.text-secondary { color: var(--text-secondary); }
-.text-tertiary { color: var(--text-tertiary); }
+.text-primary { color: var(--color-gray-900); }
+.text-secondary { color: var(--color-gray-600); }
+.text-tertiary { color: var(--color-gray-500); }
 .text-brand { color: var(--text-brand); }
 .text-inverse { color: var(--text-inverse); }
 
