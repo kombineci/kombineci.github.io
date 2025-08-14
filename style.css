@@ -37,7 +37,11 @@ body {
 }
 
 .section.alt {
-  background: var(--alt);
+  background: var(--alt); /* Sadece #faq için açık mavi */
+}
+
+#terms {
+  background: #ffffff; /* Kullanıcı Sözleşmesi için beyaz arka plan */
 }
 
 .narrow {
@@ -146,7 +150,7 @@ body {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr; /* Tek sütun, hero-card kaldırılmış */
+  grid-template-columns: 1fr;
   gap: 40px;
   align-items: center;
 }
@@ -270,6 +274,26 @@ body {
 
 .hidden-content.active {
   display: block;
+}
+
+/* faq */
+.faq-box details {
+  margin-bottom: 1rem;
+  padding: 12px;
+  background: var(--card);
+  border-radius: 12px;
+  border: 1px solid rgba(14,165,233,.2);
+}
+
+.faq-box summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text);
+  padding: 8px 0;
+}
+
+.faq-box details[open] summary {
+  color: var(--primary);
 }
 
 /* features */
