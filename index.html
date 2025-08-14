@@ -518,74 +518,43 @@ Uygulama, alıcı ve satıcıları buluşturur ancak ödeme işlemleri veya bile
 
   <button class="to-top" id="toTop" aria-label="Yukarı çık">↑</button>
 
-  <script>
-    // Tümünü Göster butonları için JavaScript
-    document.querySelectorAll('.show-more-btn').forEach(button => {
-      button.addEventListener('click', () => {
-        const targetId = button.getAttribute('data-target');
-        const targetContent = document.getElementById(targetId);
-        if (targetContent.classList.contains('active')) {
-          targetContent.classList.remove('active');
-          button.textContent = 'Tümünü Göster';
-        } else {
-          targetContent.classList.add('active');
-          button.textContent = 'Kısalt';
-        }
-      });
-    });
-
-    // Yıl güncelleme
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-
-  <script>
-// Initialize Lucide icons
-lucide.createIcons();
-
-// Set current year
-document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-// Header scroll effect
-const header = document.getElementById('header');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 100) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
-});
-
-// Mobile menu toggle - Bu önemli kısım!
+<script>
+// Mobile menu toggle - Doğru ID'lerle
 const menuToggle = document.getElementById('menuToggle');
-const navMenu = document.getElementById('navMenu');
+const navLinks = document.getElementById('navLinks');
 
-menuToggle.addEventListener('click', () => {
-  const isOpen = navMenu.classList.contains('active');
-  
-  if (isOpen) {
-    navMenu.classList.remove('active');
-    menuToggle.setAttribute('aria-expanded', 'false');
-  } else {
-    navMenu.classList.add('active');
-    menuToggle.setAttribute('aria-expanded', 'true');
-  }
-});
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const isOpen = navLinks.classList.contains('active');
+    
+    if (isOpen) {
+      navLinks.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    } else {
+      navLinks.classList.add('active');
+      menuToggle.setAttribute('aria-expanded', 'true');
+    }
+  });
 
-// Close menu when clicking on a link
-navMenu.addEventListener('click', (e) => {
-  if (e.target.tagName === 'A') {
-    navMenu.classList.remove('active');
-    menuToggle.setAttribute('aria-expanded', 'false');
-  }
-});
+  // Close menu when clicking on a link
+  navLinks.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') {
+      navLinks.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
 
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-  if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
-    navMenu.classList.remove('active');
-    menuToggle.setAttribute('aria-expanded', 'false');
-  }
-});
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+      navLinks.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -601,49 +570,56 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// FAQ accordion
-document.querySelectorAll('.faq-question').forEach(button => {
-  button.addEventListener('click', () => {
-    const faqItem = button.parentElement;
-    const isActive = faqItem.classList.contains('active');
-    
-    // Close all FAQ items
-    document.querySelectorAll('.faq-item').forEach(item => {
-      item.classList.remove('active');
+// Back to top button
+const toTop = document.getElementById('toTop');
+if (toTop) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      toTop.classList.add('visible');
+    } else {
+      toTop.classList.remove('visible');
+    }
+  });
+
+  toTop.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
     });
-    
-    // Open clicked item if it wasn't active
-    if (!isActive) {
-      faqItem.classList.add('active');
+  });
+}
+
+// Show more/less buttons
+document.querySelectorAll('.show-more-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const targetId = button.getAttribute('data-target');
+    const targetContent = document.getElementById(targetId);
+    if (targetContent) {
+      if (targetContent.classList.contains('active')) {
+        targetContent.classList.remove('active');
+        button.textContent = 'Tümünü Göster';
+      } else {
+        targetContent.classList.add('active');
+        button.textContent = 'Kısalt';
+      }
     }
   });
 });
 
-// Newsletter form
-document.getElementById('newsletterForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const email = document.getElementById('emailInput').value;
-  
-  alert(`Teşekkürler! ${email} adresine uygulama yayına girdiğinde haber vereceğiz.`);
-  this.reset();
-});
+// Year update
+const yearElement = document.getElementById('year');
+if (yearElement) {
+  yearElement.textContent = new Date().getFullYear();
+}
 
-// Back to top button
-const backToTop = document.getElementById('backToTop');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    backToTop.classList.add('visible');
-  } else {
-    backToTop.classList.remove('visible');
-  }
-});
-
-backToTop.addEventListener('click', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
+// Contact email functionality
+const contactEmail = document.querySelector('.contact-email');
+if (contactEmail) {
+  contactEmail.addEventListener('click', function(e) {
+    // Let the default mailto: behavior work
+    console.log('Contact email clicked');
   });
-});
+}
 </script>
 </body>
 </html>
