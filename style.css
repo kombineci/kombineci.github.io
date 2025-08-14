@@ -199,9 +199,46 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
-  color: var(--color-gray-900);
+  color: var(--color-gray-800);
   margin-bottom: var(--space-4);
   font-variation-settings: 'wght' 700;
+}
+
+/* Specific section title styling */
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--color-gray-800);
+  margin-bottom: 1rem;
+}
+
+/* Override for different section backgrounds */
+.section.alt h1,
+.section.alt h2, 
+.section.alt h3,
+.section.alt h4,
+.section.alt h5,
+.section.alt h6,
+.section.alt .section-title {
+  color: var(--color-gray-800);
+}
+
+#terms h1,
+#terms h2,
+#terms h3,
+#terms h4,
+#terms h5,
+#terms h6 {
+  color: var(--color-gray-800);
+}
+
+.site-footer h1,
+.site-footer h2,
+.site-footer h3,
+.site-footer h4,
+.site-footer h5,
+.site-footer h6 {
+  color: var(--color-white);
 }
 
 h1 { font-size: var(--font-size-5xl); }
@@ -610,7 +647,7 @@ a:hover {
 .doc-box h3,
 .doc-box h4,
 .doc-box h5 {
-  color: var(--text-primary);
+  color: var(--color-gray-800);
   font-weight: var(--font-weight-bold);
   margin-top: var(--space-6);
   margin-bottom: var(--space-4);
@@ -624,7 +661,7 @@ a:hover {
 
 .doc-box h4 {
   font-size: var(--font-size-xl);
-  color: var(--text-brand);
+  color: var(--color-primary-700);
 }
 
 .doc-box h5 {
@@ -746,7 +783,7 @@ a:hover {
   cursor: pointer;
   font-weight: var(--font-weight-semibold);
   font-size: var(--font-size-lg);
-  color: var(--text-primary);
+  color: var(--color-gray-800);
   padding: var(--space-2) 0;
   list-style: none;
   position: relative;
@@ -844,7 +881,7 @@ a:hover {
 .feature h3 {
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
-  color: var(--text-primary);
+  color: var(--color-gray-800);
   margin-bottom: var(--space-3);
 }
 
