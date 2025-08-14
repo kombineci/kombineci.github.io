@@ -1291,8 +1291,8 @@ a:hover {
     top: 100%;
     left: 0;
     right: 0;
-    background: var(--bg-card);
-    border: 1px solid var(--border-light);
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-200);
     border-radius: 0 0 var(--radius-xl) var(--radius-xl);
     padding: var(--space-6);
     box-shadow: var(--shadow-lg);
@@ -1302,6 +1302,7 @@ a:hover {
     opacity: 0;
     visibility: hidden;
     transition: all var(--transition-base);
+    z-index: 100;
   }
   
   .nav-links.active {
@@ -1316,6 +1317,13 @@ a:hover {
     text-align: center;
     padding: var(--space-3) var(--space-4);
     font-size: var(--font-size-lg);
+    color: var(--color-gray-700);
+    border-radius: var(--radius-lg);
+  }
+  
+  .nav-links a:hover {
+    background: var(--gradient-primary);
+    color: white;
   }
   
   .menu-toggle {
