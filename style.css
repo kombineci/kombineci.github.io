@@ -794,7 +794,7 @@ a:hover {
 }
 
 .hidden-content.active {
-  max-height: 10000px;
+  max-height: 100000px;
   transition: max-height var(--transition-slow) ease-in;
 }
 
