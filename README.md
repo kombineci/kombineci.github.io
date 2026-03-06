@@ -1,2 +1,2 @@
 # kombineci.github.io
-Kombineci: Biletini Devret
+Kombineci: Biletini Devret 
