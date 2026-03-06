@@ -692,7 +692,7 @@ a:hover {
   box-shadow: var(--shadow-base);
   transition: all var(--transition-base);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .doc-box::before {
@@ -703,6 +703,7 @@ a:hover {
   right: 0;
   height: 4px;
   background: var(--gradient-primary);
+  border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
 }
 
 .doc-box:hover {
