@@ -1,64 +1,91 @@
-// Yıl
-document.getElementById("year").textContent = new Date().getFullYear();
+/**
+ * Kombineci: Biletini Devret - Main Script
+ *
+ * Tüm DOM etkileşimleri index.html içindeki inline <script> bloğunda
+ * çalışmaktadır. Bu dosyayı harici olarak kullanmak isterseniz:
+ *
+ * 1. index.html'deki inline <script> bloğunu silin
+ * 2. <head> içine şunu ekleyin: <script src="script.js" defer></script>
+ */
 
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener("click", e=>{
-    const id = a.getAttribute("href");
-    if(id.length>1){
-      e.preventDefault();
-      document.querySelector(id).scrollIntoView({behavior:"smooth", block:"start"});
-      // mobil menüyü kapat
-      navLinks.classList.remove("open");
-      menuToggle.setAttribute("aria-expanded","false");
-    }
+(function () {
+  'use strict';
+
+  // --- Mobile Menu ---
+  var menuToggle = document.getElementById('menuToggle');
+  var navLinks = document.getElementById('navLinks');
+
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = navLinks.classList.toggle('active');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    navLinks.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        navLinks.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // --- Smooth Scrolling ---
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
+      var href = this.getAttribute('href');
+      if (href.length <= 1) return;
+      var target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (navLinks) navLinks.classList.remove('active');
+        if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
   });
-});
 
-// Back to top
-const toTop = document.getElementById("toTop");
-window.addEventListener("scroll",()=>{
-  if(window.scrollY>600){toTop.classList.add("visible")}else{toTop.classList.remove("visible")}
-});
-toTop.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+  // --- Back to Top ---
+  var toTop = document.getElementById('toTop');
+  if (toTop) {
+    window.addEventListener(
+      'scroll',
+      function () {
+        if (window.scrollY > 400) {
+          toTop.classList.add('visible');
+        } else {
+          toTop.classList.remove('visible');
+        }
+      },
+      { passive: true }
+    );
 
-// Kopyalama butonları (terms/privacy)
-document.querySelectorAll(".copy-btn").forEach(btn=>{
-  btn.addEventListener("click", async ()=>{
-    const targetSel = btn.dataset.copyTarget;
-    const el = document.querySelector(targetSel);
-    if(!el) return;
-    const text = el.innerText.trim();
-    try{
-      await navigator.clipboard.writeText(text);
-      const original = btn.textContent;
-      btn.textContent = "Kopyalandı ✓";
-      setTimeout(()=>btn.textContent = original, 1600);
-    }catch{
-      alert("Kopyalama başarısız. Metni manuel seçip kopyalayabilirsiniz.");
-    }
+    toTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // --- Show More / Less Toggle ---
+  document.querySelectorAll('.show-more-btn').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var targetId = this.getAttribute('data-target');
+      var targetContent = document.getElementById(targetId);
+      if (!targetContent) return;
+      var isActive = targetContent.classList.toggle('active');
+      this.textContent = isActive ? 'Kısalt' : 'Tümünü Göster';
+    });
   });
-});
 
-// Bildirim formu (dummy)
-document.getElementById("notifyForm").addEventListener("submit", (e)=>{
-  e.preventDefault();
-  const email = document.getElementById("emailInput").value.trim();
-  if(!email) return;
-  alert("Teşekkürler! Yayına girdiğimizde e-posta ile haber vereceğiz: " + email);
-  e.target.reset();
-});
-
-// Mağaza linklerini burada ayarla
-const androidLink = document.getElementById("androidLink");
-const iosLink = document.getElementById("iosLink");
-// Örnek: androidLink.href = "https://play.google.com/store/apps/details?id=paket.adiniz";
-// Örnek: iosLink.href = "https://apps.apple.com/app/idXXXXXXXXX";
-
-// Mobil menü
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
-menuToggle.addEventListener("click", ()=>{
-  const isOpen = navLinks.classList.toggle("open");
-  menuToggle.setAttribute("aria-expanded", String(isOpen));
-});
+  // --- Year Update ---
+  var yearEl = document.getElementById('year');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+})();
