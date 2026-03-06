@@ -593,7 +593,6 @@ Uygulama, alıcı ve satıcıları buluşturur ancak ödeme işlemleri veya bile
       menuToggle.setAttribute('aria-expanded', String(isOpen));
     });
 
-    // Close menu on link click
     navLinks.addEventListener('click', function(e) {
       if (e.target.tagName === 'A') {
         navLinks.classList.remove('active');
@@ -601,7 +600,6 @@ Uygulama, alıcı ve satıcıları buluşturur ancak ödeme işlemleri veya bile
       }
     });
 
-    // Close menu on outside click
     document.addEventListener('click', function(e) {
       if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
         navLinks.classList.remove('active');
@@ -619,7 +617,6 @@ Uygulama, alıcı ve satıcıları buluşturur ancak ödeme işlemleri veya bile
       if (target) {
         e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        // Close mobile menu after navigation
         if (navLinks) navLinks.classList.remove('active');
         if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
       }
@@ -630,11 +627,7 @@ Uygulama, alıcı ve satıcıları buluşturur ancak ödeme işlemleri veya bile
   var toTop = document.getElementById('toTop');
   if (toTop) {
     window.addEventListener('scroll', function() {
-      if (window.scrollY > 400) {
-        toTop.classList.add('visible');
-      } else {
-        toTop.classList.remove('visible');
-      }
+      toTop.classList.toggle('visible', window.scrollY > 400);
     }, { passive: true });
 
     toTop.addEventListener('click', function() {
@@ -642,7 +635,7 @@ Uygulama, alıcı ve satıcıları buluşturur ancak ödeme işlemleri veya bile
     });
   }
 
-  // --- Show More / Less Toggle ---
+  // --- Show More / Less (Terms & Privacy) ---
   document.querySelectorAll('.show-more-btn').forEach(function(button) {
     button.addEventListener('click', function() {
       var targetId = this.getAttribute('data-target');
@@ -653,7 +646,7 @@ Uygulama, alıcı ve satıcıları buluşturur ancak ödeme işlemleri veya bile
     });
   });
 
-  // --- Year Update ---
+  // --- Footer Year ---
   var yearEl = document.getElementById('year');
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
