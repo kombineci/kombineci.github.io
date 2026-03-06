@@ -789,14 +789,11 @@ a:hover {
 }
 
 .hidden-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height var(--transition-slow) ease-out;
+  display: none;
 }
 
 .hidden-content.active {
-  max-height: 100000px;
-  transition: max-height var(--transition-slow) ease-in;
+  display: block;
 }
 
 /* ========================================
