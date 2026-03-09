@@ -1531,3 +1531,332 @@ a:hover {
     break-after: avoid;
   }
 }
+
+/* ========================================
+   ÇEREZ BANNER & MODAL
+======================================== */
+
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-toast);
+  background: var(--color-gray-900);
+  color: var(--color-gray-100);
+  padding: var(--space-5) var(--space-6);
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.18);
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.cookie-banner.visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.cookie-banner-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.cookie-banner-text {
+  flex: 1;
+  min-width: 260px;
+}
+
+.cookie-banner-text strong {
+  display: block;
+  font-size: var(--font-size-base);
+  margin-bottom: var(--space-1);
+  color: var(--color-white);
+}
+
+.cookie-banner-text p {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-300);
+  margin: 0;
+  line-height: var(--line-height-relaxed);
+}
+
+.cookie-banner-text a {
+  color: var(--color-primary-300);
+  text-decoration: underline;
+}
+
+.cookie-banner-actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.cookie-btn {
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.cookie-btn--accept {
+  background: var(--gradient-primary);
+  color: var(--color-white);
+}
+
+.cookie-btn--accept:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.cookie-btn--reject {
+  background: var(--color-gray-700);
+  color: var(--color-gray-200);
+}
+
+.cookie-btn--reject:hover {
+  background: var(--color-gray-600);
+}
+
+.cookie-btn--manage {
+  background: transparent;
+  border: 1px solid var(--color-gray-500);
+  color: var(--color-gray-300);
+}
+
+.cookie-btn--manage:hover {
+  border-color: var(--color-gray-300);
+  color: var(--color-white);
+}
+
+/* Cookie Modal */
+.cookie-modal {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  background: var(--bg-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+}
+
+.cookie-modal[hidden] {
+  display: none;
+}
+
+.cookie-modal-box {
+  background: var(--color-white);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  max-width: 480px;
+  width: 100%;
+  box-shadow: var(--shadow-2xl);
+}
+
+.cookie-modal-box h3 {
+  font-size: var(--font-size-xl);
+  color: var(--color-gray-800);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 2px solid var(--color-primary-100);
+}
+
+.cookie-option {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--color-gray-100);
+}
+
+.cookie-option:last-of-type {
+  border-bottom: none;
+}
+
+.cookie-option strong {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-800);
+  margin-bottom: var(--space-1);
+}
+
+.cookie-option p {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-500);
+  margin: 0;
+  line-height: var(--line-height-relaxed);
+}
+
+.cookie-toggle--on {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-success);
+  background: rgba(16,185,129,0.1);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.switch input { display: none; }
+
+.slider {
+  position: absolute;
+  inset: 0;
+  background: var(--color-gray-300);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.slider::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 3px;
+  top: 3px;
+  background: var(--color-white);
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.switch input:checked + .slider {
+  background: var(--color-primary-500);
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(20px);
+}
+
+.cookie-modal-footer {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-gray-100);
+}
+
+/* Inline cookie settings button (inside doc-box) */
+.inline-cookie-btn {
+  background: none;
+  border: none;
+  color: var(--text-brand);
+  font-size: inherit;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  font-weight: var(--font-weight-medium);
+}
+
+.inline-cookie-btn:hover {
+  color: var(--color-primary-700);
+}
+
+/* ========================================
+   HERO WARNING BOX
+======================================== */
+
+.hero-warning {
+  margin-top: var(--space-6);
+  padding: var(--space-3) var(--space-4);
+  background: rgba(251, 191, 36, 0.12);
+  border-left: 3px solid #f59e0b;
+  border-radius: var(--radius-lg);
+}
+
+.hero-warning p {
+  font-size: var(--font-size-sm);
+  color: rgba(255,255,255,0.9);
+  margin: 0;
+  line-height: var(--line-height-relaxed);
+}
+
+/* ========================================
+   FOOTER GELIŞTIRICI BİLGİSİ & ÇEREZ BTN
+======================================== */
+
+.footer-dev-info {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  margin-top: var(--space-2);
+  line-height: var(--line-height-relaxed);
+}
+
+.footer-dev-info a {
+  color: var(--text-tertiary);
+}
+
+.footer-dev-info a:hover {
+  color: var(--text-brand);
+}
+
+.footer-cookie-btn {
+  background: none;
+  border: 1px solid var(--border-light);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.footer-cookie-btn:hover {
+  color: var(--text-brand);
+  border-color: var(--color-primary-300);
+  background: var(--color-primary-50);
+}
+
+/* ========================================
+   RESPONSIVE — ÇEREZ BANNER
+======================================== */
+
+@media (max-width: 640px) {
+  .cookie-banner-inner {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .cookie-banner-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .cookie-btn {
+    flex: 1;
+    text-align: center;
+  }
+
+  .cookie-modal-footer {
+    flex-direction: column;
+  }
+
+  .cookie-modal-footer .cookie-btn {
+    width: 100%;
+  }
+}
